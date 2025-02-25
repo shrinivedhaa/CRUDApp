@@ -1,0 +1,102 @@
+<!-- <p>add works!</p>
+<div>
+    <h2>Add New Product</h2>
+    <form>
+        ID: <input type="number" name="id" [(ngModel)]="newProduct.id"><br>
+        Name: <input type="text" name="name" [(ngModel)]="newProduct.name"><br>
+        Price: <input type="text" name="price" [(ngModel)]="newProduct.price"><br>
+        URL: <input type="text" name="url" [(ngModel)]="newProduct.url"><br>
+        Description: <input type="text" name="desc" [(ngModel)]="newProduct.description"><br>
+        <button (click)="addProduct()">Add Product</button>
+    </form>
+</div> -->
+
+<!-- <p>add works!</p>
+<div>
+    <h2>Add New Product</h2>
+    <form #productForm="ngForm" (ngSubmit)="addProduct()">
+        <div>
+            <label for="id">ID:</label>
+            <input type="number" name="id" [(ngModel)]="newProduct.id" #id="ngModel" required>
+            <div *ngIf="id.invalid && id.touched" class="error text-danger">ID is required.</div>
+        </div>
+        <br>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" [(ngModel)]="newProduct.name" #name="ngModel" required minlength="3">
+            <div *ngIf="name.invalid && name.touched" class="error text-danger">
+                Name is required and should be at least 3 characters long.
+            </div>
+        </div>
+        <br>
+        <div>
+            <label for="price">Price:</label>
+            <input type="text" name="price" [(ngModel)]="newProduct.price" #price="ngModel" required pattern="^\d+(\.\d{1,2})?$">
+            <div *ngIf="price.invalid && price.touched" class="error text-danger">
+                Price is required and should be a valid number (e.g., 12.99).
+            </div>
+        </div>
+        <br>
+        <div>
+            <label for="url">URL:</label>
+            <input type="text" name="url" [(ngModel)]="newProduct.url" #url="ngModel" required 
+                   pattern="^[a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]+(\.[a-zA-Z]{2,})+$">
+            <div *ngIf="url.invalid && url.touched" class="error text-danger">
+                A valid URL is required (e.g., example.com or www.example.com).
+            </div>
+        </div>
+        <br>
+        <div>
+            <label for="desc">Description:</label>
+            <input type="text" name="desc" [(ngModel)]="newProduct.description" #desc="ngModel" required>
+            <div *ngIf="desc.invalid && desc.touched" class="error text-danger">Description is required.</div>
+        </div>
+        <br>
+        <button type="submit" [disabled]="productForm.invalid" class="btn btn-success">Add Product</button>
+    </form>
+</div> -->
+
+<p>Add works!</p>
+<div class="container mt-4">
+    <h2 class="mb-4">Add New Product</h2>
+    <form #productForm="ngForm" (ngSubmit)="addProduct()">
+        <div class="mb-3">
+            <label for="id" class="form-label">ID:</label>
+            <input type="number" class="form-control" name="id" [(ngModel)]="newProduct.id" #id="ngModel" required>
+            <div *ngIf="id.invalid && id.touched" class="error text-danger">ID is required.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="newProduct.name" #name="ngModel" required minlength="3">
+            <div *ngIf="name.invalid && name.touched" class="error text-danger">
+                Name is required and should be at least 3 characters long.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">Price:</label>
+            <input type="text" class="form-control" name="price" [(ngModel)]="newProduct.price" #price="ngModel" required pattern="^\d+(\.\d{1,2})?$">
+            <div *ngIf="price.invalid && price.touched" class="error text-danger">
+                Price is required and should be a valid number (e.g., 12.99).
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="url" class="form-label">URL:</label>
+            <input type="text" class="form-control" name="url" [(ngModel)]="newProduct.url" #url="ngModel" required 
+                   pattern="^[a-zA-Z0-9-._~:/?#[\]@!$&'()*+,;=]+(\.[a-zA-Z]{2,})+$">
+            <div *ngIf="url.invalid && url.touched" class="error text-danger">
+                A valid URL is required (e.g., example.com or www.example.com).
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description:</label>
+            <input type="text" class="form-control" name="desc" [(ngModel)]="newProduct.description" #desc="ngModel" required>
+            <div *ngIf="desc.invalid && desc.touched" class="error text-danger">Description is required.</div>
+        </div>
+
+        <button type="submit" [disabled]="productForm.invalid" class="btn btn-success">Add Product</button>
+    </form>
+</div>

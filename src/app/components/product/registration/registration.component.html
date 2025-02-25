@@ -1,0 +1,59 @@
+<p>Registration works!</p>
+<div>
+  <h2>Add New Product</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="addProduct()">
+    
+    <!-- ID Field -->
+    <div>
+      <label for="id">ID:</label>
+      <input type="number" id="id" formControlName="id">
+      <div *ngIf="profileForm.get('id')?.touched && profileForm.get('id')?.invalid" class="text-danger">
+        <div *ngIf="profileForm.get('id')?.hasError('required')">ID is required.</div>
+        <div *ngIf="profileForm.get('id')?.hasError('minlength')">ID must be at least 4 characters.</div>
+      </div>
+    </div>
+
+    <!-- Name Field -->
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="profileForm.get('name')?.touched && profileForm.get('name')?.invalid" class="text-danger">
+        <div *ngIf="profileForm.get('name')?.hasError('required')">Name is required.</div>
+        <div *ngIf="profileForm.get('name')?.hasError('minlength')">Name must be at least 3 characters.</div>
+      </div>
+    </div>
+
+    <!-- Price Field -->
+    <div>
+      <label for="price">Price:</label>
+      <input type="text" id="price" formControlName="price">
+      <div *ngIf="profileForm.get('price')?.touched && profileForm.get('price')?.invalid" class="text-danger">
+        <div *ngIf="profileForm.get('price')?.hasError('required')">Price is required.</div>
+        <div *ngIf="profileForm.get('price')?.hasError('pattern')">Enter a valid price (e.g., 12.99).</div>
+      </div>
+    </div>
+
+    <!-- URL Field -->
+    <div>
+      <label for="url">URL:</label>
+      <input type="text" id="url" formControlName="url">
+      <div *ngIf="profileForm.get('url')?.touched && profileForm.get('url')?.invalid" class="text-danger">
+        <div *ngIf="profileForm.get('url')?.hasError('required')">URL is required.</div>
+        <div *ngIf="profileForm.get('url')?.hasError('pattern')">Enter a valid URL (e.g., example.com).</div>
+      </div>
+    </div>
+
+    <!-- Description Field -->
+    <div>
+      <label for="desc">Description:</label>
+      <input type="text" id="desc" formControlName="description">
+      <div *ngIf="profileForm.get('description')?.touched && profileForm.get('description')?.invalid" class="text-danger">
+        <div *ngIf="profileForm.get('description')?.hasError('required')">Description is required.</div>
+        <div *ngIf="profileForm.get('description')?.hasError('minlength')">Description must be at least 5 characters.</div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="profileForm.invalid" class="btn btn-primary">Add Product</button>
+  </form>
+</div>

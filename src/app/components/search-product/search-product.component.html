@@ -1,0 +1,58 @@
+<!-- <p>search-product works!</p>
+<div>
+    Search: <input type="text" [(ngModel)]="query" name="query">{{query}}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>URL</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let prod of products | search : query">
+          <td>{{prod.name}}</td>
+          <td>{{prod.price}}</td>
+          <td>{{prod.url}}</td>
+          <td>{{prod.description}}</td>
+        </tr>
+      </tbody>
+      </table>
+</div> -->
+
+<p>search-product works!</p>
+<div>
+  Search: <input type="text" [(ngModel)]="query" name="query">{{query}}
+  <button (click)="resetSort()">Reset Sorting</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th (click)="sortTable('name')">
+          Name
+          <span *ngIf="sortColumn === 'name'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+        </th>
+        <th (click)="sortTable('price')">
+          Price
+          <span *ngIf="sortColumn === 'price'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+        </th>
+        <th (click)="sortTable('url')">
+          URL
+          <span *ngIf="sortColumn === 'url'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+        </th>
+        <th (click)="sortTable('description')">
+          Description
+          <span *ngIf="sortColumn === 'description'">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of products | search : query | sort:sortColumn:sortDirection">
+        <td>{{prod.name}}</td>
+        <td>{{prod.price}}</td>
+        <td>{{prod.url}}</td>
+        <td>{{prod.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

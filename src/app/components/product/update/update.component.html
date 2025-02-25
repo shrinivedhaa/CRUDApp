@@ -1,0 +1,51 @@
+<p>update works!</p>
+<div class="container">
+    <h2>Update Product</h2>
+    <form (ngSubmit)="updateProduct()" *ngIf="product">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [(ngModel)]="product.name"
+          name="name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input
+          type="number"
+          id="price"
+          class="form-control"
+          [(ngModel)]="product.price"
+          name="price"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input
+          type="text"
+          id="url"
+          class="form-control"
+          [(ngModel)]="product.url"
+          name="url"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          class="form-control"
+          [(ngModel)]="product.description"
+          name="description"
+          required
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+  
