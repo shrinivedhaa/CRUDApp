@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { DemoComponent } from './components/demo/demo.component';
 import { SearchProductComponent } from './components/search-product/search-product.component';
 import { RegistrationComponent } from './components/product/registration/registration.component';
+import { ParentComponent } from './components/parent/parent.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'/product/all', pathMatch:'full'},
@@ -17,5 +18,6 @@ export const routes: Routes = [
     {path:'product/update/:id', component: UpdateComponent},
     {path: 'product/delete', component: DeleteComponent},
     {path: 'product/registration', component: RegistrationComponent},
+    {path: 'parent', component: ParentComponent},
     {path: "**", component: PageNotFoundComponent}
 ];
