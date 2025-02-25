@@ -1,3 +1,30 @@
 <p>parent works!</p>
 <p>Received from Child: {{childMessage}}</p>
-<app-child [message]="parentMessage" (notifyParent)="receiveMessage($event)"></app-child>
+
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>URL</th>
+            <th>Description</th>
+            <!-- <th>Action 1</th>
+            <th>Action 2</th> -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let prod of products" (click)="selectProduct(prod)">
+          <td>{{prod.name}}</td>
+          <td>{{prod.price}}</td>
+          <td>{{prod.url}}</td>
+          <td>{{prod.description}}</td>
+          <!-- <td><button [routerLink]="['/product/update', 'prod.id']" class="btn btn-info">Update</button></td> -->
+          <!-- <td><button (click)="deleteProduct(prod.id)" class="btn btn-danger">Delete</button></td> -->
+        </tr>
+      </tbody>
+      </table>
+</div>
+
+<hr>
+<app-child [message]="parentMessage" (notifyParent)="receiveMessage($event)" *ngIf="product" [selectedProduct]="product"></app-child>
