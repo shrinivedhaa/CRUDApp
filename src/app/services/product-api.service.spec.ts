@@ -13,4 +13,8 @@ describe('ProductApiService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should return observable', () => {
+    expect(service.getAllProductsOpenApi()).withContext('observable is returned').toBeTruthy();
+  });
 });
